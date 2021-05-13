@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.prod.json",
+  "compilerOptions": {
+    "paths": {
+      "@my-company-name/currency-kit": [
+        "projects/currency-kit/src/public-api.ts"
+      ],
+      "@my-company-name/currency-kit/config": [
+        "projects/currency-kit/config/src/public-api.ts"
+      ],
+      "@proxy": ["projects/currency-kit/src/lib/proxy/index.ts"],
+      "@proxy/*": ["projects/currency-kit/src/lib/proxy/*"]
+    }
+  }
+}
