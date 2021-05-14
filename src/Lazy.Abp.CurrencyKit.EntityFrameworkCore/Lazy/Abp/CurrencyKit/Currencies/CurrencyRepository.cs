@@ -39,6 +39,19 @@ namespace Lazy.Abp.CurrencyKit.Currencies
                 .FirstOrDefaultAsync(GetCancellationToken(cancellationToken));
         }
 
+        public async Task<List<Currency>> GetListAsync(
+            bool? isActive = null,
+            DateTime? startLastUpdateTime = null,
+            DateTime? endLastUpdateTime = null
+        )
+        {
+            return await (await GetQueryableAsync())
+                .WhereIf(isActive.HasValue, q => q.IsActive == isActive)
+                .WhereIf(startLastUpdateTime.HasValue, q => q.LastModificationTime >= startLastUpdateTime.Value.Date)
+                .WhereIf(endLastUpdateTime.HasValue, q => q.LastModificationTime < endLastUpdateTime.Value.AddDays(1).Date)
+                .ToListAsync();
+        }
+
         public async Task<long> GetCountAsync(
             bool? isActive = null,
             bool? isPrimary = null,

@@ -10,10 +10,18 @@ using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
+using Volo.Abp.EventBus.Distributed;
 
 namespace Lazy.Abp.CurrencyKit.Admin.Currencies
 {
-    public class CurrencyManagementAppService : CrudAppService<Currency, CurrencyDto, Guid, GetCurrencyListInput, CreateUpdateCurrencyDto, CreateUpdateCurrencyDto>,
+    public class CurrencyManagementAppService : 
+        CrudAppService<
+            Currency, 
+            CurrencyDto, 
+            Guid, 
+            GetCurrencyListInput, 
+            CreateUpdateCurrencyDto, 
+            CreateUpdateCurrencyDto>,
         ICurrencyManagementAppService
     {
         protected override string GetPolicyName { get; set; } = CurrencyKitAdminPermissions.Currency.Default;
@@ -23,10 +31,14 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
         protected override string DeletePolicyName { get; set; } = CurrencyKitAdminPermissions.Currency.Delete;
 
         private readonly ICurrencyRepository _repository;
+        public IDistributedEventBus EventBus { get; set; }
 
-        public CurrencyManagementAppService(ICurrencyRepository repository) : base(repository)
+        public CurrencyManagementAppService(
+            ICurrencyRepository repository
+        ) : base(repository)
         {
             _repository = repository;
+            EventBus = NullDistributedEventBus.Instance;
         }
 
         [Authorize(CurrencyKitAdminPermissions.Currency.Default)]
@@ -86,6 +98,16 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
             currency.UpdateExchangeRate(input.ExchangeRate);
 
             await _repository.UpdateAsync(currency);
+        }
+
+        /// <summary>
+        /// 一件更新所有货币汇率
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(CurrencyKitAdminPermissions.Currency.Update)]
+        public async Task AutoUpdateAllExchangeRateAsync()
+        {
+            await EventBus.PublishAsync(new AutoUpdateAllExchangeRateEto());
         }
     }
 }

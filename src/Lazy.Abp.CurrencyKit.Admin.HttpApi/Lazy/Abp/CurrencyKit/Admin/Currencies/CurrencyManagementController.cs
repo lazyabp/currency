@@ -77,5 +77,12 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
         {
             return _service.UpdateExchangeRateAsync(id, input);
         }
+
+        [HttpPut]
+        [Route("update-all-rates")]
+        public Task AutoUpdateAllExchangeRateAsync()
+        {
+            return _service.AutoUpdateAllExchangeRateAsync();
+        }
     }
 }
