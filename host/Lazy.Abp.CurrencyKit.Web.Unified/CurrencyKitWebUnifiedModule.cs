@@ -37,6 +37,7 @@ using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.Threading;
 using Volo.Abp.VirtualFileSystem;
+using Lazy.Abp.CurrencyKit.Admin;
 
 namespace Lazy.Abp.CurrencyKit
 {
@@ -44,6 +45,7 @@ namespace Lazy.Abp.CurrencyKit
         typeof(CurrencyKitWebModule),
         typeof(CurrencyKitApplicationModule),
         typeof(CurrencyKitEntityFrameworkCoreModule),
+        typeof(CurrencyKitAdminApplicationHostModule),
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpAutofacModule),
         typeof(AbpAccountWebModule),

@@ -10,6 +10,7 @@
 	<ItemGroup>
 		<PackageReference Include="Volo.Abp.EventBus" Version="$(AbpVersion)" />
 		<PackageReference Include="Volo.Abp.BackgroundWorkers" Version="$(AbpVersion)" />
+		<PackageReference Include="Lazy.Abp.Core" Version="0.0.1" />
 		<ProjectReference Include="..\Lazy.Abp.CurrencyKit.Admin.Application\Lazy.Abp.CurrencyKit.Admin.Application.csproj" />
 	</ItemGroup>
 

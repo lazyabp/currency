@@ -40,6 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Lazy.Abp.CurrencyKit.Admin.Application.Host\Lazy.Abp.CurrencyKit.Admin.Application.Host.csproj" />
     <ProjectReference Include="..\..\src\Lazy.Abp.CurrencyKit.Application\Lazy.Abp.CurrencyKit.Application.csproj" />
     <ProjectReference Include="..\..\src\Lazy.Abp.CurrencyKit.EntityFrameworkCore\Lazy.Abp.CurrencyKit.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\src\Lazy.Abp.CurrencyKit.Web\Lazy.Abp.CurrencyKit.Web.csproj" />

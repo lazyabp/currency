@@ -14,7 +14,7 @@ namespace Lazy.Abp.CurrencyKit.Currencies
 
         Task<Currency> GetByCountryIsoCodeAsync(string isoCode, CancellationToken cancellationToken = default);
 
-        Task<List<Currency>> GetListAsync(
+        Task<List<Currency>> GetAllListAsync(
             bool? isActive = null,
             DateTime? startLastUpdateTime = null,
             DateTime? endLastUpdateTime = null

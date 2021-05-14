@@ -1,4 +1,5 @@
-﻿using Lazy.Abp.CurrencyKit.Admin.BackgroundWorkers;
+﻿using Lazy.Abp.Core;
+using Lazy.Abp.CurrencyKit.Admin.BackgroundWorkers;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Volo.Abp;
@@ -9,7 +10,8 @@ namespace Lazy.Abp.CurrencyKit.Admin
 {
     [DependsOn(
         typeof(CurrencyKitAdminApplicationModule),
-        typeof(AbpBackgroundWorkersModule)
+        typeof(AbpBackgroundWorkersModule),
+        typeof(LazyAbpCoreModule)
         )]
     public class CurrencyKitAdminApplicationHostModule : AbpModule
     {

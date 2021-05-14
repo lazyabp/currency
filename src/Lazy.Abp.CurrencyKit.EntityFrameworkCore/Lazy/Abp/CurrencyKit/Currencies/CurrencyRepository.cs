@@ -39,7 +39,7 @@ namespace Lazy.Abp.CurrencyKit.Currencies
                 .FirstOrDefaultAsync(GetCancellationToken(cancellationToken));
         }
 
-        public async Task<List<Currency>> GetListAsync(
+        public async Task<List<Currency>> GetAllListAsync(
             bool? isActive = null,
             DateTime? startLastUpdateTime = null,
             DateTime? endLastUpdateTime = null
