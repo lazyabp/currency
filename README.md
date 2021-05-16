@@ -1,1 +1,2 @@
-#Currency abp vnext currency management module
+#Currency 
+abp vnext currency management module
