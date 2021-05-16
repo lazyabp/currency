@@ -10,15 +10,15 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
         ICrudAppService<
             CurrencyDto,
             Guid,
-            GetCurrencyListInput,
-            CreateUpdateCurrencyDto,
-            CreateUpdateCurrencyDto>
+            CurrencyListRequestDto,
+            CurrencyCreateUpdateDto,
+            CurrencyCreateUpdateDto>
     {
         Task SetAsActiveAsync(Guid id, SetAsActiveRequestDto input);
 
         Task SetAsPrimaryAsync(Guid id, SetAsPrimaryRequestDto input);
 
-        Task UpdateExchangeRateAsync(Guid id, UpdateExchangeRateRequestDto input);
+        Task UpdateExchangeRateAsync(Guid id, ExchangeRateUpdateRequestDto input);
 
         Task AutoUpdateAllExchangeRateAsync();
     }

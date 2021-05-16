@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lazy.Abp.CurrencyKit.Currencies.Dtos
 {
-    public class GetExchangeRateRequestDto
+    public class ExchangeRateRequestDto
     {
         public decimal? Money { get; set; }
 

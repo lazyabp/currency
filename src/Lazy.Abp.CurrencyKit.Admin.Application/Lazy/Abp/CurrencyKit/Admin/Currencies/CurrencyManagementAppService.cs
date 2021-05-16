@@ -19,9 +19,9 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
             Currency, 
             CurrencyDto, 
             Guid, 
-            GetCurrencyListInput, 
-            CreateUpdateCurrencyDto, 
-            CreateUpdateCurrencyDto>,
+            CurrencyListRequestDto, 
+            CurrencyCreateUpdateDto, 
+            CurrencyCreateUpdateDto>,
         ICurrencyManagementAppService
     {
         protected override string GetPolicyName { get; set; } = CurrencyKitAdminPermissions.Currency.Default;
@@ -42,7 +42,7 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
         }
 
         [Authorize(CurrencyKitAdminPermissions.Currency.Default)]
-        public async override Task<PagedResultDto<CurrencyDto>> GetListAsync(GetCurrencyListInput input)
+        public async override Task<PagedResultDto<CurrencyDto>> GetListAsync(CurrencyListRequestDto input)
         {
             var totalCount = await _repository.GetCountAsync(input.IsActive, input.IsPrimary, input.Filter);
             var currencies = await _repository.GetListAsync(input.Sorting, input.MaxResultCount, input.SkipCount, input.IsActive, input.IsPrimary, input.Filter);
@@ -54,7 +54,7 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
         }
 
         [Authorize(CurrencyKitAdminPermissions.Currency.Create)]
-        public async override Task<CurrencyDto> CreateAsync(CreateUpdateCurrencyDto input)
+        public async override Task<CurrencyDto> CreateAsync(CurrencyCreateUpdateDto input)
         {
             var exist = await _repository.IsCodeExistAsync(input.CurrencyCode);
             if (exist)
@@ -64,7 +64,7 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
         }
 
         [Authorize(CurrencyKitAdminPermissions.Currency.Update)]
-        public async override Task<CurrencyDto> UpdateAsync(Guid id, CreateUpdateCurrencyDto input)
+        public async override Task<CurrencyDto> UpdateAsync(Guid id, CurrencyCreateUpdateDto input)
         {
             var exist = await _repository.IsCodeExistAsync(input.CurrencyCode, id);
             if (exist)
@@ -92,7 +92,7 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
         }
 
         [Authorize(CurrencyKitAdminPermissions.Currency.Update)]
-        public async Task UpdateExchangeRateAsync(Guid id, UpdateExchangeRateRequestDto input)
+        public async Task UpdateExchangeRateAsync(Guid id, ExchangeRateUpdateRequestDto input)
         {
             var currency = await _repository.GetAsync(id);
             currency.UpdateExchangeRate(input.ExchangeRate);

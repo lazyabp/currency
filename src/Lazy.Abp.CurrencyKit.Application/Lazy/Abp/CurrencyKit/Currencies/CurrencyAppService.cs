@@ -50,7 +50,7 @@ namespace Lazy.Abp.CurrencyKit.Currencies
             );
         }
 
-        public async Task<decimal> ConvertExchangeRateAsync(GetExchangeRateRequestDto input)
+        public async Task<decimal> ConvertExchangeRateAsync(ExchangeRateRequestDto input)
         {
             var exchangeRate = await _currencyManager.ConvertExchangeRateAsync(input.FromCurrencyCode, input.ToCurrencyCode);
 

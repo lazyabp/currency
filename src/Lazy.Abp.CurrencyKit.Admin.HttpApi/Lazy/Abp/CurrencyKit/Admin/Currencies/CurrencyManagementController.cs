@@ -12,9 +12,9 @@ using Volo.Abp.AspNetCore.Mvc;
 namespace Lazy.Abp.CurrencyKit.Admin.Currencies
 {
     [RemoteService(Name = CurrencyKitAdminRemoteServiceConsts.RemoteServiceName)]
-    [Area("currencykitadmin")]
+    [Area("currencykit")]
     [ControllerName("Currency")]
-    [Route("api/currencykit/currencies/admin")]
+    [Route("api/currencykit/currencies/management")]
     public class CurrencyManagementController : AbpController, ICurrencyManagementAppService
     {
         private readonly ICurrencyManagementAppService _service;
@@ -32,20 +32,20 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
         }
 
         [HttpGet]
-        public Task<PagedResultDto<CurrencyDto>> GetListAsync(GetCurrencyListInput input)
+        public Task<PagedResultDto<CurrencyDto>> GetListAsync(CurrencyListRequestDto input)
         {
             return _service.GetListAsync(input);
         }
 
         [HttpPost]
-        public Task<CurrencyDto> CreateAsync(CreateUpdateCurrencyDto input)
+        public Task<CurrencyDto> CreateAsync(CurrencyCreateUpdateDto input)
         {
             return _service.CreateAsync(input);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public Task<CurrencyDto> UpdateAsync(Guid id, CreateUpdateCurrencyDto input)
+        public Task<CurrencyDto> UpdateAsync(Guid id, CurrencyCreateUpdateDto input)
         {
             return _service.UpdateAsync(id, input);
         }
@@ -73,7 +73,7 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
 
         [HttpPut]
         [Route("{id}/update-rate")]
-        public Task UpdateExchangeRateAsync(Guid id, UpdateExchangeRateRequestDto input)
+        public Task UpdateExchangeRateAsync(Guid id, ExchangeRateUpdateRequestDto input)
         {
             return _service.UpdateExchangeRateAsync(id, input);
         }

@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Lazy.Abp.CurrencyKit.Currencies.Dtos
 {
     [Serializable]
-    public class CreateUpdateCurrencyDto
+    public class CurrencyCreateUpdateDto
     {
         public string Name { get; set; }
 

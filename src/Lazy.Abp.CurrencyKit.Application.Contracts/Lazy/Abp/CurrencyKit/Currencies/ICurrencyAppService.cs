@@ -15,6 +15,6 @@ namespace Lazy.Abp.CurrencyKit.Currencies
 
         Task<PagedResultDto<CurrencyViewDto>> GetListAsync(PagedAndSortedResultRequestDto input);
 
-        Task<decimal> ConvertExchangeRateAsync(GetExchangeRateRequestDto input);
+        Task<decimal> ConvertExchangeRateAsync(ExchangeRateRequestDto input);
     }
 }

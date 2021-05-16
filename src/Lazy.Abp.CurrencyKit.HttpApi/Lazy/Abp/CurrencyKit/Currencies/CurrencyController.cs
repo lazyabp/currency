@@ -41,7 +41,7 @@ namespace Lazy.Abp.CurrencyKit.Currencies
 
         [HttpGet]
         [Route("exchange-rate-convert")]
-        public Task<decimal> ConvertExchangeRateAsync(GetExchangeRateRequestDto input)
+        public Task<decimal> ConvertExchangeRateAsync(ExchangeRateRequestDto input)
         {
             return _currencyAppService.ConvertExchangeRateAsync(input);
         }

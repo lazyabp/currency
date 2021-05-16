@@ -5,7 +5,7 @@ using Volo.Abp.Application.Dtos;
 
 namespace Lazy.Abp.CurrencyKit.Currencies.Dtos
 {
-    public class GetCurrencyListInput : PagedAndSortedResultRequestDto
+    public class CurrencyListRequestDto : PagedAndSortedResultRequestDto
     {
         public bool? IsActive { get; set; }
 
