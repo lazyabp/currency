@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Localization\CurrencyKit\*.json" />
-    <Content Remove="Localization\CurrencyKit\*.json" />
+    <EmbeddedResource Include="Lazy\Abp\CurrencyKit\Localization\CurrencyKit\*.json" />
+    <Content Remove="Lazy\Abp\CurrencyKit\Localization\CurrencyKit\*.json" />
   </ItemGroup>
 
 </Project>
