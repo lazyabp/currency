@@ -25,7 +25,7 @@ namespace Lazy.Abp.CurrencyKit
                 options.Resources
                     .Add<CurrencyKitResource>("en")
                     .AddBaseTypes(typeof(AbpValidationResource))
-                    .AddVirtualJson("/Localization/CurrencyKit");
+                    .AddVirtualJson("/Lazy/Abp/CurrencyKit/Localization/CurrencyKit");
             });
 
             Configure<AbpExceptionLocalizationOptions>(options =>

@@ -5,7 +5,10 @@ using Volo.Abp.Modularity;
 
 namespace Lazy.Abp.CurrencyKit.Admin
 {
-    [DependsOn(typeof(CurrencyKitDomainSharedModule))]
+    [DependsOn(
+        typeof(CurrencyKitApplicationContractsModule),
+        typeof(CurrencyKitDomainSharedModule)
+        )]
     public class CurrencyKitAdminApplicationContractsModule : AbpModule
     {
     }
