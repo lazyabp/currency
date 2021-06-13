@@ -66,9 +66,9 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
 
         [HttpPut]
         [Route("{id}/set-as-primary")]
-        public Task SetAsPrimaryAsync(Guid id, SetAsPrimaryRequestDto input)
+        public Task SetAsPrimaryAsync(Guid id)
         {
-            return _service.SetAsPrimaryAsync(id, input);
+            return _service.SetAsPrimaryAsync(id);
         }
 
         [HttpPut]

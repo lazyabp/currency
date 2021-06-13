@@ -83,12 +83,17 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
         }
 
         [Authorize(CurrencyKitAdminPermissions.Currency.Update)]
-        public async Task SetAsPrimaryAsync(Guid id, SetAsPrimaryRequestDto input)
+        public async Task SetAsPrimaryAsync(Guid id)
         {
-            var currency = await _repository.GetAsync(id);
-            currency.SetAsPrimary(input.IsPrimary);
+            var currencies = await _repository.GetAllListAsync();
 
-            await _repository.UpdateAsync(currency);
+            foreach (var currency in currencies)
+            {
+                if (currency.Id == id)
+                    currency.SetAsPrimary(true);
+                else
+                    currency.SetAsPrimary(false);
+            }
         }
 
         [Authorize(CurrencyKitAdminPermissions.Currency.Update)]

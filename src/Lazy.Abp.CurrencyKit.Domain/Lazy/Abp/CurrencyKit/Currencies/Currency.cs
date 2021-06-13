@@ -45,9 +45,9 @@ namespace Lazy.Abp.CurrencyKit.Currencies
         }
 
         public Currency(
-            Guid id, 
-            string name, 
-            string currencyCode, 
+            Guid id,
+            [NotNull] string name,
+            [NotNull] string currencyCode, 
             decimal exchangeRate,
             string currencySymbol,
             string countryIsoCode,

@@ -16,7 +16,7 @@ namespace Lazy.Abp.CurrencyKit.Admin.Currencies
     {
         Task SetAsActiveAsync(Guid id, SetAsActiveRequestDto input);
 
-        Task SetAsPrimaryAsync(Guid id, SetAsPrimaryRequestDto input);
+        Task SetAsPrimaryAsync(Guid id);
 
         Task UpdateExchangeRateAsync(Guid id, ExchangeRateUpdateRequestDto input);
 

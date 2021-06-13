@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lazy.Abp.CurrencyKit.Admin.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lazy.Abp.CurrencyKit.Admin.Application.Host", "src\Lazy.Abp.CurrencyKit.Admin.Application.Host\Lazy.Abp.CurrencyKit.Admin.Application.Host.csproj", "{0D5B9094-C2E2-4098-AC7F-709B46D97E31}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lazy.Abp.CurrencyKit.HttpApi.Host", "host\Lazy.Abp.CurrencyKit.HttpApi.Host\Lazy.Abp.CurrencyKit.HttpApi.Host.csproj", "{4FB73DC0-3863-43CC-A812-BE405363D7BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,10 @@ Global
 		{0D5B9094-C2E2-4098-AC7F-709B46D97E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D5B9094-C2E2-4098-AC7F-709B46D97E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D5B9094-C2E2-4098-AC7F-709B46D97E31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FB73DC0-3863-43CC-A812-BE405363D7BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FB73DC0-3863-43CC-A812-BE405363D7BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FB73DC0-3863-43CC-A812-BE405363D7BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FB73DC0-3863-43CC-A812-BE405363D7BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +136,7 @@ Global
 		{8E5970BD-493F-4930-9CBF-AB8100333DD3} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
 		{D865D98F-B984-4804-8868-25C11C08C8B8} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
 		{0D5B9094-C2E2-4098-AC7F-709B46D97E31} = {649A3FFA-182F-4E56-9717-E6A9A2BEC545}
+		{4FB73DC0-3863-43CC-A812-BE405363D7BD} = {E400416D-2895-4512-9D17-90681EEC7E0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4324B3B4-B60B-4E3C-91D8-59576B4E26DD}
